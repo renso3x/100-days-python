@@ -8,6 +8,8 @@ def merge_sort(list):
     2. Conquer: Recursively sort the sublist created in previous set
     
     3. Combine: Merge the sorted sublist created in previous set
+
+    Takes O(n log n) time -> Expensive
     """
     if len(list) <= 1:
         return list
@@ -23,9 +25,10 @@ def split(list):
     """
     Divide the unsorted list at midpoint into sublists
     Returns two sublist - left and right
+    
+    Takes overall O(log n) time
     """
     midpoint = len(list)//2
-
     left = list[:midpoint]
     right = list[midpoint:]
 
@@ -35,6 +38,8 @@ def merge(left, right):
     """
     Merges two lists (arrays), sorting them in the process
     Returns a new merged list
+
+    Takes overall O(n log n) time -> O(n)
     """
 
     l = []
