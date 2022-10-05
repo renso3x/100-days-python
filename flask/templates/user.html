@@ -11,6 +11,10 @@
         {% endif %}
     {% endwith %}
 
-    Welcome {{ user }}
+    Welcome {{ user }} -> <a href="/user/{{user_id}}">View</a>
     <a href="/logout">Logout</a>
+    <form action="#" method="POST">
+        <input type="email" name="email" placeholder="Enter Email" value="{{email if email}}" />
+        <input type="submit" value="Submit" />
+    </form>
 {% endblock %}
