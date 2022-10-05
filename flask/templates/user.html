@@ -11,9 +11,6 @@
         {% endif %}
     {% endwith %}
 
-<form action="#" method="post">
-    <p>Name:</p>
-    <p><input type="text" name="name" /></p>
-    <p><input type="submit" value="Submit" /></p>
-</form>
+    Welcome {{ user }}
+    <a href="/logout">Logout</a>
 {% endblock %}

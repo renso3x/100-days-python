@@ -1,5 +1,6 @@
 from datetime import timedelta
-from flask import Flask, redirect, url_for, render_template, request, session
+from re import I
+from flask import Flask, redirect, url_for, render_template, request, session, flash
 
 app = Flask(__name__)
 app.secret_key = "somesecret"
@@ -26,8 +27,8 @@ def login():
 @app.route('/<name>')
 def user(name):
     if "user" in session:
-        return f"hello {name} <a href='/logout' >Logout</a>"
-
+        flash(f"Login successful.")
+        return render_template("user.html", user=name)
     return redirect(url_for("login"))
 
 @app.route('/admin')
@@ -42,6 +43,7 @@ def admin():
 def logout():
     for key in list(session.keys()):
         session.pop(key)
+    flash("You have been logout.")
     return redirect(url_for("login"))
 
 
