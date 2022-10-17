@@ -1,6 +1,5 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-from os import path
 from flask_login import LoginManager
 
 db = SQLAlchemy()
@@ -22,7 +21,7 @@ def create_app():
     app.register_blueprint(auth, url_prefix="/")
 
     # Import all the models before creating the DB
-    from .models import User
+    from .models import User, Post, Comment
         
     create_database(app)
 
@@ -40,5 +39,5 @@ def create_app():
 
 def create_database(app):
     with app.app_context():
-        db.create_all()
         print("Create database!")
+        db.create_all()
